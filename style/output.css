@@ -1,0 +1,66 @@
+@import url(./style.css);
+
+.results
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: hsl(183, 100%, 15%);
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.total
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount
+{
+    text-align: right;
+}
+
+.tip-amount, .tot-amount
+{
+    background: none;
+    font-weight: 700;
+    font-size: 2em;
+    color: hsl(172, 67%, 45%);
+    cursor: default;
+}
+
+.description
+{
+    color: hsl(186, 39%, 79%);
+}
+
+.description p
+{
+    font-size: 0.8em;
+}
+
+#reset
+{
+    font-family: 'Space Mono';
+    font-weight: 700;
+    font-size: 1em;
+    padding: 5px;
+    background-color:  hsl(183, 100%, 20%);
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color: hsl(186, 14%, 43%);
+}
+
+/* hover effect */
+
+#reset:hover
+{
+    background-color: hsl(172, 67%, 45%);
+}

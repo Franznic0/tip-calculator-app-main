@@ -1,0 +1,53 @@
+
+@media screen and (max-width: 375px) {
+    .main {
+        justify-content: space space-between;
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    .calculator {
+        width: 100%;
+    }
+
+    .bill-wrap, .tip-container, .people-wrap
+    {
+        padding-right: 0;
+    }
+
+    .tip-wrap
+    {
+        display: grid;
+        grid-template-areas: 
+            "a a"
+            "b b";
+            grid-template-columns: 48% 48%;
+    }
+
+    .tip-amount, .tot-amount {
+        font-size: 1.8em;
+    }
+
+    #reset {
+        margin-top: 2rem;
+    }
+
+    .results {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .attribution {
+        position: relative;
+        font-size: 0.6rem;
+        padding-top: 10px;
+    }
+}
