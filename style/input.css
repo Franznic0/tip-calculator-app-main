@@ -17,9 +17,6 @@ label
     font-weight: 700;
 }
 /* bill */
-.tip-label{
-    display: none;
-}
 
 .bill-wrap, .tip-container, .people-wrap
 {
@@ -50,7 +47,7 @@ input
     color: hsl(183, 100%, 15%);
     background-color: hsl(189, 41%, 97%);
     width: 100%;
-    border: none;
+    border: 1px solid hsl(189, 41%, 97%);
     border-radius: 5px;
     padding: .3rem .5rem;
 }
@@ -75,7 +72,7 @@ input:focus
     margin: 10px 0;
 }
 
-.tip 
+.tip
 {
     font-weight: 700;
     color: hsl(189, 41%, 97%);
@@ -85,11 +82,16 @@ input:focus
     border-radius: 5px;
 }
 
-.tip:focus {
+.tip:focus
+{
     outline: none;
     border: none;
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
+}
+
+.tip-label {
+    display: none;
 }
 
 .custom-input
@@ -99,7 +101,11 @@ input:focus
 }
 
 .custom-input::-webkit-outer-spin-button,
-.custom-input::-webkit-inner-spin-button {
+.custom-input::-webkit-inner-spin-button,
+#bill-amount::-webkit-outer-spin-button,
+#bill-amount::-webkit-inner-spin-button,
+#num-people::-webkit-outer-spin-button,
+#num-people::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -129,13 +135,17 @@ input:focus
 
 /* hover effects */
 
-.tip:hover
+.tip:hover, .tip-label:hover
 {
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
 }
 
-.input-wrap:hover, input:hover, .tip:hover, #reset:hover
+.input-wrap:hover, 
+input:hover, 
+.tip:hover, 
+#reset:hover,
+.tip-label
 {
     cursor: pointer;
 }

@@ -36,8 +36,10 @@ span{
     text-align: right;
 }
 
-.tip-amount, .tot-amount
-{
+#tip,
+#total, 
+#tip span,
+#total span {
     background: none;
     font-weight: 700;
     font-size: clamp(2rem, 6vw, 2.4rem);

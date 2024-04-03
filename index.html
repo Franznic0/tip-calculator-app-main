@@ -34,30 +34,40 @@
           <label for="bill-amount">Bill</label>
           <div class="input-wrap">
             <img src="./images/icon-dollar.svg" alt="icon-dollar">
-            <input type="text" name="bill" id="bill-amount" value="" placeholder="0">
+            <input type="number" name="bill" id="bill-amount" value="" placeholder="0">
           </div>
         </div>
         <!-- tip selector -->
         <fieldset class="tip-container">
           <legend>Select Tip %</legend>
           <div class="tip-wrap">
-            <input id="five-per" class="tip btn" type="button" name="tip" value="5%" >
-            <label class="tip-label" for="five-per" aria-label="5%"></label>
+            <div class="input-wrapper">
+              <input id="five-per" class="tip btn" type="button" name="tip" value="5%">
+              <label class="tip-label" for="five-per" aria-label="5%"></label>
+            </div>
 
-            <input id="ten-per" class="tip btn" type="button" name="tip" value="10%">
-            <label class="tip-label" for="ten-per" aria-label="5%"></label>
+            <div class="input-wrapper">
+              <input id="ten-per" class="tip btn" type="button" name="tip" value="10%">
+              <label class="tip-label" for="ten-per" aria-label="10%"></label>
+            </div>
 
-            <input id="fifteen-per" class="tip btn" type="button" name="tip" value="15%" >
-            <label class="tip-label" for="fifteen-per" aria-label="5%"></label>
+            <div class="input-wrapper">
+              <input id="fifteen-per" class="tip btn" type="button" name="tip" value="15%" >
+              <label class="tip-label" for="fifteen-per" aria-label="15%"></label>
+            </div>
 
-            <input id="twentyfive-per" class="tip btn" type="button" name="tip" value="25%" >
-            <label class="tip-label" for="twentyfive-per" aria-label="5%"></label>
+            <div class="input-wrapper">
+              <input id="twentyfive-per" class="tip btn" type="button" name="tip" value="25%" >
+              <label class="tip-label" for="twentyfive-per" aria-label="25%"></label>
+            </div>
 
-            <input id="fifty-per" class="tip btn" type="button" name="tip" value="50%" >
-            <label class="tip-label" for="fifty-per" aria-label="5%"></label>
+            <div class="input-wrapper">
+              <input id="fifty-per" class="tip btn" type="button" name="tip" value="50%" >
+              <label class="tip-label" for="fifty-per" aria-label="50%"></label>
+            </div>
 
             <input id="custom-tip" class="custom-input" type="number" name="tip" value="" min="0" placeholder="Custom">
-            <label class="tip-label" for="custom-tip" aria-label="5%"></label>
+            <label class="tip-label tip-label-custom" for="custom-tip" aria-label="custom"></label>
           </div>
         </fieldset>
         <!-- n. people split -->
@@ -68,7 +78,7 @@
           </div>
           <div class="input-wrap">
             <img src="./images/icon-person.svg" alt="icon-person">
-            <input type="text" name="num-people" id="num-people" placeholder="0">
+            <input type="number" name="num-people" id="num-people" value="" placeholder="0">
           </div>
         </div>
       </div>
