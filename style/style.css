@@ -6,38 +6,26 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-.main 
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-family: 'Space Mono', monospace;
-    font-weight: 400;
-    font-size: 12px;
-    width: 100%;
-    height: 100vh;
+body{
     background-color: hsl(186, 39%, 79%);
     color: hsl(186, 14%, 43%);
-    font-size: 24px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-size: clamp(12px, 3vw, 16px);
 }
 
 .logo
 {
-    padding-top: 50px;
-}
-
-form {
-    display: flex;
-    justify-content: space-around;
+    width: fit-content;
+    padding-block: 3rem;
+    margin: auto;
 }
 
 .container
 {
     margin: auto;
     padding: 40px;
-    width: 60%;
+    max-width: 650px;
     background-color: hsl(0, 0%, 100%);
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -46,13 +34,17 @@ form {
     -o-border-radius: 20px;
 }
 
+form {
+    display: flex;
+    justify-content: space-around;
+}
+
 .attribution 
 { 
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 5px;
-    font-size: 11px; 
+    padding: 1rem;
     text-align: center; 
 }
 

@@ -10,10 +10,14 @@
     font-weight: 500;
 }
 
+legend,
 label
 {
     font-weight: 700;
     font-size: 0.6em;
+}
+.tip-label{
+    display: none;
 }
 
 .bill-wrap, .tip-container, .people-wrap

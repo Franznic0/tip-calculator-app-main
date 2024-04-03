@@ -14,7 +14,7 @@
   
 </head>
 <body>
-<div class="main">
+<main class="main">
 
   <!-- Logo -->
   <div class="logo">
@@ -27,7 +27,9 @@
     <!-- Form-->
     <form>
 
+      <!-- calculator -->
       <div class="calculator">
+        <!-- insert bill -->
         <div class="bill-wrap">
           <label for="bill-amount">Bill</label>
           <div class="input-wrap">
@@ -35,24 +37,34 @@
             <input type="text" name="bill" id="bill-amount" value="" placeholder="0">
           </div>
         </div>
-        
-        <div class="tip-container">
-          <label>Select Tip %</label>
+        <!-- tip selector -->
+        <fieldset class="tip-container">
+          <legend>Select Tip %</legend>
           <div class="tip-wrap">
-            <input class="tip btn" type="button" name="tip" value="5%" >
-            <input class="tip btn" type="button" name="tip" value="10%">
-            <input class="tip btn" type="button" name="tip" value="15%" >
-            <input class="tip btn" type="button" name="tip" value="25%" >
-            <input class="tip btn" type="button" name="tip" value="50%" >
-            <input class="custom-input" type="text" name="tip" value="" placeholder="Custom">
-            
+            <input id="five-per" class="tip btn" type="button" name="tip" value="5%" >
+            <label class="tip-label" for="five-per" aria-label="5%"></label>
+
+            <input id="ten-per" class="tip btn" type="button" name="tip" value="10%">
+            <label class="tip-label" for="ten-per" aria-label="5%"></label>
+
+            <input id="fifteen-per" class="tip btn" type="button" name="tip" value="15%" >
+            <label class="tip-label" for="fifteen-per" aria-label="5%"></label>
+
+            <input id="twentyfive-per" class="tip btn" type="button" name="tip" value="25%" >
+            <label class="tip-label" for="twentyfive-per" aria-label="5%"></label>
+
+            <input id="fifty-per" class="tip btn" type="button" name="tip" value="50%" >
+            <label class="tip-label" for="fifty-per" aria-label="5%"></label>
+
+            <input id="custom-tip" class="custom-input" type="text" name="tip" value="" placeholder="Custom">
+            <label class="tip-label" for="custom-tip" aria-label="5%"></label>
           </div>
-        </div>
-        
+        </fieldset>
+        <!-- n. people split -->
         <div class="people-wrap">
           <div class="description-wrap">
             <label for="num-people">Number of People</label>
-            <label id="error-message" for="num-people">Can't be zero</label>
+            <p id="error-message">Can't be zero</p>
           </div>
           <div class="input-wrap">
             <img src="./images/icon-person.svg" alt="icon-person">
@@ -63,21 +75,22 @@
 
       <!-- Show tip -->
       <div class="results">
+        <!-- display tip -->
         <div class="display-result">
+          <!-- tip amount -->
           <div class="total">
             <div class="description">
-              <h3>Tip Amount</h3>
+              <span>Tip Amount</span>
               <p>/ person</p>
             </div>
-            
             <div id="tip" class="amount">
               <output class="tip-amount" for="bill tip num-people">$0.00</output>
             </div>
           </div>
-          
+          <!-- total amount -->
           <div class="total">
             <div class="description">
-              <h3>Total</h3>
+              <span>Total</span>
               <p>/ person</p>
             </div>
             
@@ -87,6 +100,7 @@
           </div>
 
         </div>
+        <!-- reset button -->
         <button id="reset" type="reset">RESET</button>
       </div>
 
@@ -94,13 +108,16 @@
     </form>
   </div>
   
+</main>
+
+<footer>
+  <!-- attribution -->
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
-
+</footer>
 </div>
-  <script src="main.js"></script>
 
+<script src="main.js"></script>
 </body>
 </html>
