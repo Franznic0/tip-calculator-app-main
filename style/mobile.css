@@ -31,10 +31,6 @@
             grid-template-columns: 48% 48%;
     }
 
-    .tip-amount, .tot-amount {
-        font-size: 1.8em;
-    }
-
     #reset {
         margin-top: 2rem;
     }
@@ -46,7 +42,5 @@
 
     .attribution {
         position: relative;
-        font-size: 0.6rem;
-        padding-top: 10px;
     }
 }

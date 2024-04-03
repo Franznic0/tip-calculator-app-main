@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     width: 50%; 
+    padding-left: .5rem;
     font-weight: 500;
 }
 
@@ -14,8 +15,8 @@ legend,
 label
 {
     font-weight: 700;
-    font-size: 0.6em;
 }
+/* bill */
 .tip-label{
     display: none;
 }
@@ -23,7 +24,7 @@ label
 .bill-wrap, .tip-container, .people-wrap
 {
     width: 100%;
-    padding-right: 40px;
+    padding-right: 2rem;
 }
 
 .input-wrap
@@ -38,20 +39,20 @@ label
 .input-wrap img
 {
     position: absolute;
-    left: 1rem;
+    left: .5rem;
+    height: 35%;
 }
 
 input
 {
     text-align: right;
     font-family: 'Space Mono', monospace;
-    font-size: 1em;
     color: hsl(183, 100%, 15%);
     background-color: hsl(189, 41%, 97%);
     width: 100%;
     border: none;
     border-radius: 5px;
-    padding: 2px 10px;
+    padding: .3rem .5rem;
 }
 
 input:focus
@@ -59,13 +60,12 @@ input:focus
     border: 1px solid hsl(172, 67%, 45%);
     outline: none;
 }
-
+/* tip selector */
 .tip-container
 {
     margin: 20px 0;
     border: none;
 }
-
 
 .tip-wrap
 {
@@ -85,40 +85,29 @@ input:focus
     border-radius: 5px;
 }
 
-.tip-active {
+.tip:focus {
+    outline: none;
+    border: none;
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
 }
 
-.tip:focus {
-    outline: none;
-    border: none;
-}
-
-.custom
-{
-    display: flex;
-    align-items: stretch;
-    color: hsl(186, 14%, 43%);
-    background-color: hsl(189, 41%, 97%);
-    padding: 0;
-}
-
 .custom-input
 {
-    text-align: right;
+    text-align: center;
     font-weight: 700;
-    font-size: 1.2rem;
 }
 
-.custom-input:placeholder-shown {
-    text-align: center;
+.custom-input::-webkit-outer-spin-button,
+.custom-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .custom-input:focus {
-    text-align: right;
+    text-align: center;
 }
-
+/* people input */
 .description-wrap
 {
     display: flex;
@@ -126,15 +115,16 @@ input:focus
     align-items: center;
 }
 
-.description
-{
-    font-size: 0.5em;
-}
-
 #error-message
 {
     color: rgb(255, 0, 0);
     display: none;
+}
+#num-people.active{
+    border: 1px solid rgb(255, 0, 0);
+}
+#error-message.active{
+    display: block;
 }
 
 /* hover effects */

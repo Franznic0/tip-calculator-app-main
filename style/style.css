@@ -11,20 +11,24 @@ body{
     color: hsl(186, 14%, 43%);
     font-family: 'Space Mono', monospace;
     font-weight: 400;
-    font-size: clamp(12px, 3vw, 16px);
+    font-size: clamp(8px, 3vw, 12px);
 }
 
 .logo
 {
     width: fit-content;
-    padding-block: 3rem;
+    padding-block: 5rem 3rem;
     margin: auto;
+}
+
+.logo img {
+    width: 5rem;
 }
 
 .container
 {
     margin: auto;
-    padding: 40px;
+    padding: 1.5rem;
     max-width: 650px;
     background-color: hsl(0, 0%, 100%);
     border-radius: 20px;
@@ -46,6 +50,7 @@ form {
     width: 100%;
     padding: 1rem;
     text-align: center; 
+    font-size: .9em;
 }
 
 .attribution a 
