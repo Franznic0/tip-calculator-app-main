@@ -16,17 +16,6 @@ document.oninput = () => {
     totAmount.innerHTML = total;
 };
 
-// check n people
-people.oninput = () => {
-    if (people.value == 0) {
-        people.classList.add('active');
-        errorMessage.classList.add('active');
-    } else {
-        people.classList.remove('active');
-        errorMessage.classList.remove('active');
-    }
-};
-
 // reset input
 function resetInput() {
     tipSelected.forEach(el => {
@@ -35,7 +24,21 @@ function resetInput() {
         customTip = 0;
         custom.value = "";
         tipAmount.innerHTML = "$0.00";
+        totAmount.innerHTML = "$0.00";
     });
+};
+
+// check n people
+people.oninput = () => {
+    if (people.value == 0) {
+        people.classList.add('active');
+        errorMessage.classList.add('active');
+    } else {
+        people.classList.remove('active');
+        errorMessage.classList.remove('active');
+    };
+    
+    resetInput();
 };
 
 // calculate tip
@@ -59,12 +62,24 @@ function tipSelection (){
             selectedTip = tipSelected[i].value;
             selectedTip = selectedTip.replace('%', '');
             
-            // calc selected tip
-            tip =  Math.round(((bill.value * selectedTip / 100)/people.value)*100)/100;
-            tipAmount.innerHTML = "$" + tip;
+            // call sel tip calc
+            console.log(tip);
+            if (bill.value>0 && people.value>0) {
+                tip =  Math.round(((bill.value * selectedTip / 100)/people.value)*100)/100;
+                tipAmount.innerHTML = "$" + tip;
+                total = "$" + Math.round(((bill.value / people.value) + tip) *100)/100;
+                totAmount.innerHTML = total;
+            } else {
+                totAmount.innerHTML = "$0.00";
+                tipAmount.innerHTML = "$0.00";
+            } ;
         });
     };
-    
+    // call custom tip handle
+    customTipHandle();
+};
+
+function customTipHandle() {
     // custom tip setup
     custom.addEventListener('click', ()=>{
         // remove selection from set tip options
@@ -72,11 +87,12 @@ function tipSelection (){
     });
     
     // handle custom tip
-    custom.oninput = () => {
+    custom.oninput = () => {   
         customTip = custom.value;
         if (customTip > 0) {
             totCustTip = Math.round(((bill.value * customTip / 100)/people.value)*100)/100;
             tipAmount.innerHTML =  "$" + totCustTip;
+            totAmount.innerHTML = total;
         } else {
             tipAmount.innerHTML = "$0.00";
             totCustTip = 0;
@@ -87,12 +103,7 @@ function tipSelection (){
 // calculate total
 let total = 0
 function calcTot() {
-    console.log(tip);
-    if (tip > 0){
-        total = "$" + Math.round(((bill.value / people.value) + tip) *100)/100;
-    } else if(tip == 0 && totCustTip > 0) {
-        total = "$" + Math.round(((bill.value / people.value) + totCustTip) *100)/100;
-    } else if (bill.value>0 && people.value>0) {
+    if (bill.value>0 && people.value>0) {
         total = "$" + Math.round((bill.value / people.value) *100)/100;
     } else {
         total = "$0.00";
