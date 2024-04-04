@@ -1,7 +1,7 @@
 // input
 var bill = document.querySelector("#bill-amount");
-const tipSelected = document.querySelectorAll("tip");
-var custom = document.querySelector("#custom-input");
+var tipSelected = document.querySelectorAll(".tip");
+var custom = document.querySelector("#custom-tip");
 var people = document.querySelector("#num-people");
 // output
 var tipAmount = document.querySelector('.tip-amount');
@@ -12,12 +12,10 @@ var reset = document.querySelector('#reset');
 
 // get values
 document.oninput = () => {
-    calcTip();
     calcTot();
-    totTip.innerHTML = totTip;
     totAmount.innerHTML = total;
+};
 
-}
 // check n people
 people.oninput = () => {
     if (people.value == 0) {
@@ -27,42 +25,80 @@ people.oninput = () => {
         people.classList.remove('active');
         errorMessage.classList.remove('active');
     }
-}
+};
+
 // calculate tip
 let tip = 0;
+let customTip = 0;
+let selectedTip = 0;
+let totCustTip = 0;
+
+// reset input
+function resetInput() {
+    tipSelected.forEach(el => {
+        el.classList.remove('selected');
+        custom.value = "";
+        tipAmount.innerHTML = "$0.00";
+    });
+};
+
 function tipSelection (){
-    tipSelected.forEach((tipSelection)=>{
-        tipSelection.addEventListener('click', ()=>{
-            tip = tipSelection.value;
-        })
-    })
+    
+    // iterate tip inputs
+    for (let i =0; i < tipSelected.length; i ++) {
+        
+        tipSelected[i].addEventListener('click', ()=>{
+            // remove selection from not clicked
+            resetInput();
+            
+            // add selection on click
+            tipSelected[i].classList.add('selected');
+            selectedTip = tipSelected[i].value;
 
-}
+            // calc selected tip
+        });
+    };
 
-let totTip = 0;
-function calcTip() {
-    tipSelection();
+    // custom tip setup
+    custom.addEventListener('click', ()=>{
+        // remove selection from set tip options
+        resetInput();
+    });
 
-    if (tip !== 0) {
-        totTip = "$" + Math.round((bill.value * tip / 100)*100)/100;
-    } else {
-        totTip = "$0.00";
-    }
-}
+    // handle custom tip
+    custom.oninput = () => {
+        customTip = custom.value;
+        if (customTip > 0) {
+            totCustTip = Math.round(((bill.value * customTip / 100)/people.value)*100)/100;
+            tipAmount.innerHTML =  "$" + totCustTip;
+        } else if (customTip == 0){
+            totTip = "$0.00";
+        } else if(customTip == ""){
+            totTip = "$0.00";
+        } else {
+            return;
+        }
+    };
+};
 
 // calculate total
 let total = 0
 function calcTot() {
     
     if (bill.value>0 && people.value>0){
-        total = "$" + Math.round((bill.value / people.value)*100)/100;
+        total = "$" + Math.round(((bill.value / people.value) + totCustTip) *100)/100;
     } else {
-        return total = "$0.00";
+        total = "$0.00";
     }
-}
+};
 
 // reset
 reset.addEventListener('click', ()=> {
+    
+    // reset tips
+    resetInput();
+    
+    // reset people
     if (people.classList.contains('active')){
         people.classList.remove('active');
         errorMessage.classList.remove('active');
@@ -71,4 +107,11 @@ reset.addEventListener('click', ()=> {
     } else {
         return;
     }
-})
+    
+    // reset output
+    tipAmount.innerHTML = "$0.00"
+    totAmount.innerHTML = "$0.00"
+    
+});
+
+tipSelection();

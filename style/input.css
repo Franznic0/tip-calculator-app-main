@@ -80,9 +80,13 @@ input:focus
     text-align: center;
     padding: 5px;
     border-radius: 5px;
+    border: none;
+}
+.tip:focus {
+    border: none;
 }
 
-.tip:focus
+.tip.selected
 {
     outline: none;
     border: none;
